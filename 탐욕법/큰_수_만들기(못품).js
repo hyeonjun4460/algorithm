@@ -1,5 +1,7 @@
 // 문제링크: https://school.programmers.co.kr/learn/courses/30/lessons/42883#
 // 정답
+// 핵심1: stack에 넣을 값을 stack의 기존 값들과 비교하여, 기존 값이 넣을 값보다 클 때까지 pop을 해준다.(가장 큰 값이 stack의 첫번째 값이 된다)
+// 핵심2: 자리수를 number.length-k와 맞추기 위해, stack을 마지막으로 splice로 k개 만큼 뒤에서부터 삭제한다.
 function solution(number, k) {
     const stack = []
     for (let i = 0; i < number.length; i++) {
