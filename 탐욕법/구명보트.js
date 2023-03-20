@@ -20,12 +20,15 @@ function solution(people, limit) {
     let i = 0 // 큰거
     let j = people.length - 1 //작은거
     while (i <= j) {
+
         const sum = people[i] + people[j]
+        // 구명보트 크기에 두 사람이 맞으면, 두 사람은 통과
         if (sum <= limit) {
             answer += 1
             i += 1
             j -= 1
         } else {
+            // 구명보트 크기에 두 사람이 맞지 않으면, 무거운 사람만 통과
             answer += 1
             j -= 1
         }
