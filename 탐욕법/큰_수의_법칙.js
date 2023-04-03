@@ -36,3 +36,4 @@ while (sumCount < m) {
 }
 
 console.log(result) // 46
+

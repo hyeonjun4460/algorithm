@@ -13,11 +13,6 @@ function solution(citations) {
 
 // 오답
 function solution(citations) {
-    var answer = 0;
-    //     h번 이상 인용된 논문 수
-    //     h번 이하 인용된 논문 수
-    //     h번 이상 인용된 논문 수 - h번 이하 연용된 논문 수의 절대값이 가장 작은 것
-    //     절대값이 같은 논문이 있다면, 양수가 answer
     const hIndex = []
     for (let i = 0; i < citations.length; i++) {
         let up = 0
