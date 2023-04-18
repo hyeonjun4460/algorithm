@@ -1,10 +1,11 @@
 import sys
-# sys.stdin = open('input.txt', 'rt')
+sys.stdin = open('input.txt', 'rt')
 
 data = list(input())
 
 number = ''
 # 숫자만 빼기
+# isdigit(), isdeciaml() 활용하면 예외처리 안써도 됨
 for i in range(len(data)):
     try:
         int(data[i])
