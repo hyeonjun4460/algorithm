@@ -18,7 +18,7 @@ def test():
     for i in range(len(sudoku)):
         columnList = list()
         for j in range(len(sudoku)):
-            columnList.append(sudoku[i][j])
+            columnList.append(sudoku[j][i])
         columnSet = set(columnList)
         if len(columnList) != len(columnSet):
             return 'NO'
