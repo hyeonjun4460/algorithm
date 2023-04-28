@@ -18,12 +18,11 @@ def check(mid):
     res = []
     for i in songs:
         tmp += i
+        print(i,tmp)
         if tmp >= mid:
             cnt += 1
             res.append(tmp)
             tmp = 0
-            
-    print(cnt,i, tmp)
     if cnt == m:
         res.sort()
         return res[-1]
