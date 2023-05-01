@@ -1,31 +1,38 @@
+# 풀이가 어려웠던  이유
+# C마리의 말을 N개의 마구간에 넣는다고 했을 때, 그 조합의 경우의 수를 먼저 생각함.
+# 문제에서 초점을 두어야 할 점은 "가장 가까운 말의 최대거리"임.
+# 가장 가까운 말의 최대거리라는 말은, 남은 말들 간의 거리는 그 거리 이상임.
+# 그러므로, 거리에 초점을 두고, 말둘 간의 거리가 가장 가까운 말의 최대거리(mid)보다 긴 개수가 c개 이상인지만 보면됨.
 import sys
 from itertools import combinations
 sys.stdin = open('input.txt', 'rt')
 
 n,c = map(int, input().split())
-
-# 말의 위치는 index+1 + value 값
-# 말들을 위치시키기
-# 가장 가까운 두 말의 거리(x)를 구하는 함수 구현
-# x가 mid보다 크면 정답에 추가, lt = mid + 1
-# x가 mid보다 작으면 정답에 추가, lt = mid + 1
-# 거리 차의 합이 가장 큰 것 중, 가장 가까운 두 말의 거리가 최대인 것
-# 
 houses = list()
 
 
-rt = 0
-for i in range(n):
-    x = int(input()) 
-    houses.append(x)
-    if rt <= x:
-        rt = x
+
+for _ in range(n):
+    houses.append(int(input()))
 lt = 1
-sample = list(combinations(houses,c))
-print(sample)
+houses.sort()
+rt = houses[-1]
+res = 0
+
+def solution(mid):
+    cnt = 1
+    tmp = houses[0]
+    for i in range(1, len(houses)):
+        if (houses[i] - tmp) >= mid:
+            cnt+=1
+            tmp = houses[i]
+    return cnt
+
 while lt <= rt:
-    mid = (lt+rt)//2
-    
-    
-
-
+    mid = (lt + rt)//2
+    if solution(mid) >= c:
+        res = mid
+        lt = mid +1
+    else:
+        rt = mid -1
+print(res)
